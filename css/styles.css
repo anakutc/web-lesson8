@@ -1,0 +1,124 @@
+.spongebob-window{
+  position: relative;
+  width: 260px;
+  height: 370px;
+  overflow: hidden;
+  border: 8px;
+}
+
+.patrick-container{
+  width: 260px;
+  height: 370px;
+  overflow: hidden;
+position: relative;
+overflow: hidden;
+}
+
+.patrick-container img {
+  position: absolute;
+  left: -430px;
+ top: 15px;
+ 
+}
+
+.spongebob-container{
+  position: relative;
+  display: inline-block;
+}
+
+.candle-wrapper{
+  position: absolute;
+  
+  bottom: 213px;
+  right: -50px;
+  z-index: 5;
+}
+
+.candle-img{
+  width: 70px;
+  height: 85px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.dark-room{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  width: 100%;
+  height: 100vh;
+  background-color: whitesmoke;
+  transition: background-color 0.2s;
+  z-index: 1;
+}
+
+#magic-trigger{
+  display: none;
+}
+
+.start-sign{
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  padding: 15px;
+  background: #8b4513;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  z-index: 999;
+  position: relative;
+}
+
+.start-sign hoover{
+  background: #a0522d;
+}
+
+.flame {
+  width: 15px;
+  height: 35px;
+  background: orange;
+  border-radius: 50% 50% 20% 20%;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px yellow;
+  animation: flicker 0.1s infinite alternate;
+}
+
+@keyframes flicker {
+  from { opacity: 0.8; transform: translateX(-50%) scale(1); }
+  to { opacity: 1; transform: translateX(-50%) scale(1.1); }
+}
+
+#magic-trigger:checked ~ .dark-room .patrick-container {
+  animation: patrickLean 1s forwards;
+}
+
+#magic-trigger:checked ~ .dark-room .flame {
+  animation: killFlame 0.1s forwards 1s;
+}
+
+#magic-trigger:checked ~ .dark-room {
+  animation: lightsOut 0.5s forwards 1s;
+}
+
+#magic-trigger {
+  display: none;
+}
+
+@keyframes patrickLean {
+  to { transform: translateX(-150px); }
+}
+
+@keyframes killFlame {
+  to { 
+    opacity: 0; 
+    transform: translateX(-50%) scale(0); 
+  }
+}
+
+@keyframes lightsOut {
+  to { background-color: black; }
+}
